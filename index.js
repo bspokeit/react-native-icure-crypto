@@ -1,6 +1,7 @@
+import { NativeModules } from "react-native";
 
-import { NativeModules } from 'react-native';
+const { RNIcureRSA } = NativeModules;
 
-const { RNIcureCrypto } = NativeModules;
+export { RNIcureRSA };
 
-export default RNIcureCrypto;
+export default RNIcureRSA;

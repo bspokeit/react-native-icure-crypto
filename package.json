@@ -1,7 +1,7 @@
 {
   "name": "react-native-icure-crypto",
   "version": "1.0.0",
-  "description": "",
+  "description": "A native implementation of RSA and AES cryptographic features for icc-api",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,12 +9,18 @@
   "keywords": [
     "react-native"
   ],
-  "author": "",
-  "license": "",
+  "author": {
+    "name": "Philippe Mertens"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/bspokeit/react-native-icure-crypto#readme",
+  "dependencies": {
+    "react-native": "0.69.1"
+  },
   "devDependencies": {
-    "react-native": "0.41.2"
+    "react-native": "0.69.1"
   },
   "peerDependencies": {
-    "react-native": "^0.41.2"
+    "react-native": "0.69.1"
   }
 }

@@ -7,68 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A80271D12893E2DA00091FBA /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A80271C22893E29E00091FBA /* libReact.a */; };
-		B3E7B58A1CC2AC0600A0062D /* RNIcureCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNIcureCrypto.m */; };
+		A80271D52893EC5100091FBA /* RNIcureRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80271D42893EC5100091FBA /* RNIcureRSA.swift */; };
+		A80271DF2893EC6C00091FBA /* RNIcureAES.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80271DE2893EC6C00091FBA /* RNIcureAES.swift */; };
+		A80271E12893F2DC00091FBA /* RNIcureAES.m in Sources */ = {isa = PBXBuildFile; fileRef = A80271E02893F2DC00091FBA /* RNIcureAES.m */; };
+		A80271E32893F8F300091FBA /* RSANative.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80271E22893F8F300091FBA /* RSANative.swift */; };
+		B3E7B58A1CC2AC0600A0062D /* RNIcureRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNIcureRSA.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A80271C12893E29E00091FBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A80271B62893E29E00091FBA /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
-			remoteInfo = React;
-		};
-		A80271C32893E29E00091FBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A80271B62893E29E00091FBA /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2D2A28131D9B038B00D4039D;
-			remoteInfo = "React-tvOS";
-		};
-		A80271C52893E29E00091FBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A80271B62893E29E00091FBA /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3C059A1DE3340900C268FA;
-			remoteInfo = yoga;
-		};
-		A80271C72893E29E00091FBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A80271B62893E29E00091FBA /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3C06751DE3340C00C268FA;
-			remoteInfo = "yoga-tvOS";
-		};
-		A80271C92893E29E00091FBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A80271B62893E29E00091FBA /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD9251DE5FBEC00167DC4;
-			remoteInfo = cxxreact;
-		};
-		A80271CB2893E29E00091FBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A80271B62893E29E00091FBA /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD9321DE5FBEE00167DC4;
-			remoteInfo = "cxxreact-tvOS";
-		};
-		A80271CD2893E29E00091FBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A80271B62893E29E00091FBA /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD90B1DE5FBD600167DC4;
-			remoteInfo = jschelpers;
-		};
-		A80271CF2893E29E00091FBA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A80271B62893E29E00091FBA /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
-			remoteInfo = "jschelpers-tvOS";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
@@ -84,9 +28,15 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNIcureCrypto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNIcureCrypto.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A80271B62893E29E00091FBA /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		A80271D32893EC5100091FBA /* RNIcureCrypto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNIcureCrypto-Bridging-Header.h"; sourceTree = "<group>"; };
+		A80271D42893EC5100091FBA /* RNIcureRSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNIcureRSA.swift; sourceTree = "<group>"; };
+		A80271DE2893EC6C00091FBA /* RNIcureAES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNIcureAES.swift; sourceTree = "<group>"; };
+		A80271E02893F2DC00091FBA /* RNIcureAES.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNIcureAES.m; sourceTree = "<group>"; };
+		A80271E22893F8F300091FBA /* RSANative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSANative.swift; sourceTree = "<group>"; };
+		A80271E628941F0600091FBA /* React */ = {isa = PBXFileReference; lastKnownFileType = folder; name = React; path = "../node_modules/react-native/React"; sourceTree = "<group>"; };
+		A80271E828942FAE00091FBA /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNIcureCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNIcureCrypto.h; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* RNIcureCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNIcureCrypto.m; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* RNIcureRSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNIcureRSA.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +44,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A80271D12893E2DA00091FBA /* libReact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,32 +62,28 @@
 			isa = PBXGroup;
 			children = (
 				B3E7B5881CC2AC0600A0062D /* RNIcureCrypto.h */,
-				B3E7B5891CC2AC0600A0062D /* RNIcureCrypto.m */,
+				B3E7B5891CC2AC0600A0062D /* RNIcureRSA.m */,
+				A80271D42893EC5100091FBA /* RNIcureRSA.swift */,
+				A80271E22893F8F300091FBA /* RSANative.swift */,
+				A80271E02893F2DC00091FBA /* RNIcureAES.m */,
+				A80271DE2893EC6C00091FBA /* RNIcureAES.swift */,
 				134814211AA4EA7D00B7C361 /* Products */,
 				A80271B52893E29E00091FBA /* Frameworks */,
+				A80271D32893EC5100091FBA /* RNIcureCrypto-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
 		A80271B52893E29E00091FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A80271B62893E29E00091FBA /* React.xcodeproj */,
+				A80271E828942FAE00091FBA /* React.xcodeproj */,
+				A80271E628941F0600091FBA /* React */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A80271B72893E29E00091FBA /* Products */ = {
+		A80271E928942FAE00091FBA /* Products */ = {
 			isa = PBXGroup;
-			children = (
-				A80271C22893E29E00091FBA /* libReact.a */,
-				A80271C42893E29E00091FBA /* libReact.a */,
-				A80271C62893E29E00091FBA /* libyoga.a */,
-				A80271C82893E29E00091FBA /* libyoga.a */,
-				A80271CA2893E29E00091FBA /* libcxxreact.a */,
-				A80271CC2893E29E00091FBA /* libcxxreact.a */,
-				A80271CE2893E29E00091FBA /* libjschelpers.a */,
-				A80271D02893E29E00091FBA /* libjschelpers.a */,
-			);
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -173,6 +118,7 @@
 				TargetAttributes = {
 					58B511DA1A9E6C8500147676 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -189,8 +135,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = A80271B72893E29E00091FBA /* Products */;
-					ProjectRef = A80271B62893E29E00091FBA /* React.xcodeproj */;
+					ProductGroup = A80271E928942FAE00091FBA /* Products */;
+					ProjectRef = A80271E828942FAE00091FBA /* React.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -200,71 +146,16 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		A80271C22893E29E00091FBA /* libReact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libReact.a;
-			remoteRef = A80271C12893E29E00091FBA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A80271C42893E29E00091FBA /* libReact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libReact.a;
-			remoteRef = A80271C32893E29E00091FBA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A80271C62893E29E00091FBA /* libyoga.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libyoga.a;
-			remoteRef = A80271C52893E29E00091FBA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A80271C82893E29E00091FBA /* libyoga.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libyoga.a;
-			remoteRef = A80271C72893E29E00091FBA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A80271CA2893E29E00091FBA /* libcxxreact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libcxxreact.a;
-			remoteRef = A80271C92893E29E00091FBA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A80271CC2893E29E00091FBA /* libcxxreact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libcxxreact.a;
-			remoteRef = A80271CB2893E29E00091FBA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A80271CE2893E29E00091FBA /* libjschelpers.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjschelpers.a;
-			remoteRef = A80271CD2893E29E00091FBA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A80271D02893E29E00091FBA /* libjschelpers.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjschelpers.a;
-			remoteRef = A80271CF2893E29E00091FBA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* RNIcureCrypto.m in Sources */,
+				A80271E12893F2DC00091FBA /* RNIcureAES.m in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* RNIcureRSA.m in Sources */,
+				A80271E32893F8F300091FBA /* RSANative.swift in Sources */,
+				A80271D52893EC5100091FBA /* RNIcureRSA.swift in Sources */,
+				A80271DF2893EC6C00091FBA /* RNIcureAES.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,32 +266,45 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNIcureCrypto;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNIcureCrypto-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNIcureCrypto;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNIcureCrypto-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

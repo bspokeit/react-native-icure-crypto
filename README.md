@@ -52,3 +52,7 @@ https://medium.com/wix-engineering/creating-a-native-module-in-react-native-93ba
 ```
 https://medium.com/@alielmajdaoui/linking-local-packages-in-react-native-the-right-way-2ac6587dcfa2
 ```
+
+```
+https://teabreak.e-spres-oh.com/swift-in-react-native-the-ultimate-guide-part-1-modules-9bb8d054db03
+```
