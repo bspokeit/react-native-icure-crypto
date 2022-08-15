@@ -54,5 +54,5 @@ https://medium.com/@alielmajdaoui/linking-local-packages-in-react-native-the-rig
 ```
 
 ```
-https://teabreak.e-spres-oh.com/swift-in-react-native-the-ultimate-guide-part-1-modules-9bb8d054db03
+https://teabreak.e-spres-oh.com/swift-in-react-native-the-ultimate-guide-part-1-modules-9bb8d054db03§
 ```

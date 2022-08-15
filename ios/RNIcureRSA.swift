@@ -18,27 +18,28 @@ class RNIcureRSA: NSObject {
     }
 
     @objc
-    func encrypt(_ message: String, withKey: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
+    func encrypt(_ message: String, key: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
         let RSA_native = RSANative()
-        print(withKey)
-        guard let _ = RSA_native.setPublicKey(publicKey: withKey) else {
+
+        guard let _ = RSA_native.setPublicKey(publicKey: key) else {
             resolve(false)
             return
         }
+        
         let msg = RSA_native.encrypt(message: message)
         resolve(msg)
     }
     
     @objc
-    func decrypt(_ message: String , withKey: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
+    func decrypt(_ message: String , key: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
         let RSA_native = RSANative()
-        guard let _ = RSA_native.setPrivateKey(privateKey: withKey) else {
+        
+        guard let _ = RSA_native.setPrivateKey(privateKey: key) else {
             resolve(false)
             return
         }
+        
         let msg = RSA_native.decrypt(message: message)
         resolve(msg)
     }
-    
-    
 }

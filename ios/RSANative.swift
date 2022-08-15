@@ -11,13 +11,13 @@ import CommonCrypto
 
 typealias SecKeyPerformBlock = (SecKey) -> ()
 
-
 class RSANative: NSObject {
     var publicKey: SecKey?
     var privateKey: SecKey?
     
     public func setPublicKey(publicKey: String) -> Bool? {
         if #available(iOS 10.0, *) {
+            
             let query: [String: AnyObject] = [
                 String(kSecAttrKeyType): kSecAttrKeyTypeRSA,
                 String(kSecAttrKeyClass): kSecAttrKeyClassPublic,
@@ -27,13 +27,14 @@ class RSANative: NSObject {
         
             guard let data = Data(base64Encoded: publicKey, options: .ignoreUnknownCharacters) else { return false }
             guard let key = SecKeyCreateWithData(data as CFData, query as CFDictionary, &error) else { return false }
+            
             self.publicKey = key
             
             return true
-        } else {
-            // Fallback on earlier versions. Not available yet.
-            return false
         }
+        
+        //  No suport for IOS version < 10.0
+        return false
     }
     
     public func setPrivateKey(privateKey: String) -> Bool? {
@@ -45,21 +46,25 @@ class RSANative: NSObject {
             
             var error: Unmanaged<CFError>?
             
-            guard let data = Data(base64Encoded: privateKey, options: .ignoreUnknownCharacters) else { return nil }
-        
-        
-            guard let key = SecKeyCreateWithData(data as CFData, query as CFDictionary, &error) else { return nil }
+            guard let data = Data(base64Encoded: privateKey, options: .ignoreUnknownCharacters) else { return false }
+            guard let key = SecKeyCreateWithData(data as CFData, query as CFDictionary, &error) else { return false }
+            
             self.privateKey = key
+            
             return true
-        } else {
-            // Fallback on earlier versions. Not available yet.
-            return nil
         }
+        
+        //  No suport for IOS version < 10.0
+        return false
     }
     
     public func encrypt(message: String) -> String? {
-        guard let data =  message.data(using: .utf8) else { return nil }
+        guard let data = message.data(using: .utf8) else {
+            return nil
+        }
+        
         let encrypted = self._encrypt(data: data)
+        
         return encrypted?.base64EncodedString(options: .lineLength64Characters)
     }
     
@@ -73,31 +78,35 @@ class RSANative: NSObject {
                     var error: Unmanaged<CFError>?
                     cipherText = SecKeyCreateEncryptedData(publicKey, .rsaEncryptionOAEPSHA1, data as CFData, &error) as Data?
                 }
-            } else {
-                // Fallback on earlier versions. Not available yet.
-            };
+            }
+            
+            //  No suport for IOS version < 10.0
         }
         
-        encryptor(self.publicKey!);
+        if (self.publicKey != nil) {
+            encryptor(self.publicKey!)
+        }
 
         return cipherText;
     }
     
     public func decrypt(message: String) -> String? {
         guard let data =  Data(base64Encoded: message, options: .ignoreUnknownCharacters) else {
-            print("Base64 guard nil return!")
             return nil
         }
         
         let decrypted = self._decrypt(data: data)
+        
         if (decrypted == nil) {
             return nil
         }
+        
         return String(data: decrypted!, encoding: String.Encoding.utf8)
     }
     
     private func _decrypt(data: Data) -> Data? {
         var clearText: Data?
+        
         let decryptor: SecKeyPerformBlock = {privateKey in
             if #available(iOS 10.0, *) {
                 let canEncrypt = SecKeyIsAlgorithmSupported(privateKey, .decrypt, .rsaEncryptionOAEPSHA1)
@@ -106,12 +115,14 @@ class RSANative: NSObject {
                     clearText = SecKeyCreateDecryptedData(privateKey, .rsaEncryptionOAEPSHA1, data as CFData, &error) as Data?
                 }
                 
-            } else {
-                // Fallback on earlier versions. Not available yet.
-            };
+            }
+            
+            //  No suport for IOS version < 10.0
         }
         
-        decryptor(self.privateKey!);
+        if (self.privateKey != nil) {
+            decryptor(self.privateKey!)
+        }
         
         return clearText
     }
