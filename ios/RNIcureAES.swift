@@ -32,8 +32,8 @@ class RNIcureAES: NSObject {
             return
         }
         
-        guard keyData.count == kCCKeySizeAES256 else {
-            reject("Key size issue (expecting 256 AES-CBC key)", "Encrypt error", nil)
+        guard keyData.count == kCCKeySizeAES128 || keyData.count == kCCKeySizeAES192 || keyData.count == kCCKeySizeAES256 else {
+            reject("Key size issue (expecting 128/192/256 AES-CBC keys)", "Encrypt error", nil)
             return
         }
         
@@ -70,8 +70,8 @@ class RNIcureAES: NSObject {
             return
         }
         
-        guard keyData.count == kCCKeySizeAES256 else {
-            reject("Key size issue (expecting 256 AES-CBC key)", "Decrypt error 3", nil)
+        guard keyData.count == kCCKeySizeAES128 || keyData.count == kCCKeySizeAES192 || keyData.count == kCCKeySizeAES256 else {
+            reject("Key size issue (expecting 128/192/256 AES-CBC key)", "Decrypt error 3", nil)
             return
         }
         
@@ -91,13 +91,11 @@ class RNIcureAES: NSObject {
             
             resolve(msg)
         } catch AESError.oversizeError {
-            reject("AES Native error", "Decrypt error 6.1", nil)
-        } catch AESError.modulosizeError {
-            reject("AES Native error", "Decrypt error 6.2", nil)
+            reject("AES Native error", "Decrypt error (oversize)", nil)
         } catch AESError.cccryptError {
-            reject("AES Native error", "Decrypt error 6.3", nil)
+            reject("AES Native error", "Decrypt error (cccrypt)", nil)
         } catch {
-            reject("AES Native error", "Decrypt error 6", error)
+            reject("AES Native error", "Decrypt error", error)
         }
     }
 }
