@@ -23,27 +23,27 @@ class RNIcureAES: NSObject {
     func encrypt(_ message: String, key: String, iv: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
         
         guard let data = Data(base64Encoded: message, options: .ignoreUnknownCharacters) else {
-            reject("Message parsing failed", "Encrypt error", nil)
+            reject("AES Native Encrypt error", "Message parsing failed", nil)
             return
         }
         
         guard let keyData = Data(base64Encoded: key, options: .ignoreUnknownCharacters) else {
-            reject("Key parsing failed", "Encrypt error", nil)
+            reject("AES Native Encrypt error", "Key parsing failed", nil)
             return
         }
         
         guard keyData.count == kCCKeySizeAES128 || keyData.count == kCCKeySizeAES192 || keyData.count == kCCKeySizeAES256 else {
-            reject("Key size issue (expecting 128/192/256 AES-CBC keys)", "Encrypt error", nil)
+            reject("AES Native Encrypt error", "Key size issue (expecting 128/192/256 AES-CBC keys)", nil)
             return
         }
         
         guard let ivData = Data(base64Encoded: iv, options: .ignoreUnknownCharacters) else {
-            reject("Initialization vector parsing failed", "Encrypt error", nil)
+            reject("AES Native Encrypt error", "Initialization vector parsing failed", nil)
             return
         }
         
         guard ivData.count == kCCBlockSizeAES128 else {
-            reject("IV size issue (expecting 128 Initialization Vector)", "Encrypt error", nil)
+            reject("AES Native Encrypt error", "IV size issue (expecting 128 Initialization Vector)", nil)
             return
         }
         
@@ -53,7 +53,7 @@ class RNIcureAES: NSObject {
             
             resolve(msg)
         } catch {
-            reject("AES Native error", "Encrypt error", error)
+            reject("AES Native Encrypt error", "Encrypt error", error)
         }
     }
     
@@ -61,27 +61,27 @@ class RNIcureAES: NSObject {
     func decrypt(_ message: String, key: String, iv: String, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
 
         guard let data = Data(base64Encoded: message, options: .ignoreUnknownCharacters) else {
-            reject("Message parsing failed", "Decrypt error 1", nil)
+            reject("AES Native Decrypt error", "Message parsing failed", nil)
             return
         }
         
         guard let keyData = Data(base64Encoded: key, options: .ignoreUnknownCharacters) else {
-            reject("Key parsing failed", "Decrypt error 2", nil)
+            reject("AES Native Decrypt error", "Key parsing failed", nil)
             return
         }
         
         guard keyData.count == kCCKeySizeAES128 || keyData.count == kCCKeySizeAES192 || keyData.count == kCCKeySizeAES256 else {
-            reject("Key size issue (expecting 128/192/256 AES-CBC key)", "Decrypt error 3", nil)
+            reject("AES Native Decrypt error", "Key size issue (expecting 128/192/256 AES-CBC key)", nil)
             return
         }
         
         guard let ivData = Data(base64Encoded: iv, options: .ignoreUnknownCharacters) else {
-            reject("Initialization vector parsing failed", "Decrypt error 4", nil)
+            reject("AES Native Decrypt error", "Initialization vector parsing failed", nil)
             return
         }
         
         guard ivData.count == kCCBlockSizeAES128 else {
-            reject("IV size issue (expecting 128 Initialization Vector)", "Decrypt error 5", nil)
+            reject("AES Native Decrypt error", "IV size issue (expecting 128 Initialization Vector)", nil)
             return
         }
         
@@ -91,11 +91,31 @@ class RNIcureAES: NSObject {
             
             resolve(msg)
         } catch AESError.oversizeError {
-            reject("AES Native error", "Decrypt error (oversize)", nil)
+            reject("AES Native Decrypt error", "Decrypt error (oversize)", nil)
         } catch AESError.cccryptError {
-            reject("AES Native error", "Decrypt error (cccrypt)", nil)
+            reject("AES Native Decrypt error", "Decrypt error (cccrypt)", nil)
         } catch {
-            reject("AES Native error", "Decrypt error", error)
+            reject("AES Native Decrypt error", "Decrypt error", error)
+        }
+    }
+    
+    @objc
+    func generateKey(_ keySize: Int, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
+        
+        guard keySize % 8 != 0 else {
+            reject("AES Native GenerateKey error", "Key size issue (AES-CBC key length expected to be multiple of 8)", nil)
+            return
+        }
+        
+        do {
+            let AES_native = AESNative()
+            let key = try AES_native.generate(keySize: keySize / 8)
+            
+            resolve(key)
+        } catch AESError.generateError {
+            reject("AES Native GenerateKey error", "Key generation error", nil)
+        } catch {
+            reject("AES Native GenerateKey error", "GenerateKey error", error)
         }
     }
 }

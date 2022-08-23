@@ -42,4 +42,18 @@ class RNIcureRSA: NSObject {
         let msg = RSA_native.decrypt(message: message)
         resolve(msg)
     }
+    
+    @objc
+    func generateKey(_ keySize: Int, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
+        let RSA_native = RSANative()
+        let res = RSA_native.generate(keySize: keySize)
+        if(res ?? false){
+            let pub = RSA_native.encodedPublicKeyDER()
+            let prv = RSA_native.encodedPrivateKeyRSA()
+            let keys = ["public": pub, "private": prv]
+            resolve(keys)
+            return
+        }
+        resolve(false)
+    }
 }

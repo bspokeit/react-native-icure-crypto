@@ -18,6 +18,9 @@ enum AESError: Error {
     //  Crypt data buffer modulo size error
     case modulosizeError
     
+    //  Key generation error
+    case generateError
+    
     case unexpected(code: Int)
 }
 
@@ -91,5 +94,18 @@ class AESNative: NSObject {
         } else {
             throw AESError.cccryptError
         }
+    }
+    
+    public func generate(keySize: Int) throws -> String? {
+        var keyData = Data(count: keySize)
+        let result = keyData.withUnsafeMutableBytes {
+          SecRandomCopyBytes(kSecRandomDefault, keySize, $0.baseAddress!)
+        }
+         s
+        guard result == errSecSuccess else {
+            throw AESError.generateError
+        }
+
+        return keyData.base64EncodedString()
     }
 }
