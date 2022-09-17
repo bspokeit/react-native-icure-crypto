@@ -37,22 +37,28 @@
 ## Usage
 
 ```javascript
-import RNIcureCrypto from "react-native-icure-crypto";
+import { RNIcureCrypto } from "react-native-icure-crypto";
 
 // TODO: What to do with the module?
-RNIcureCrypto;
+You can now use RNIcureCrypto as a partial native implementation of the WebCrypto API:
+
+const webCrypto = RNIcureCrypto as Crypto;
 ```
 
-## Useful references
+## Inspirations
 
 ```
-https://medium.com/wix-engineering/creating-a-native-module-in-react-native-93bab0123e46#360a
-```
-
-```
-https://medium.com/@alielmajdaoui/linking-local-packages-in-react-native-the-right-way-2ac6587dcfa2
+https://www.npmjs.com/package/react-native-rsa-native
 ```
 
 ```
-https://teabreak.e-spres-oh.com/swift-in-react-native-the-ultimate-guide-part-1-modules-9bb8d054db03§
+https://www.npmjs.com/package/react-native-aes-crypto
+```
+
+```
+https://www.npmjs.com/package/@icure/api
+```
+
+```
+https://github.com/microsoft/MSR-JavaScript-Crypto
 ```
