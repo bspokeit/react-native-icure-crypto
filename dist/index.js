@@ -1,3 +1,4 @@
+"use strict";
 /*
  * Copyright (C) 2022 Bspoke IT SRL
  *
@@ -16,9 +17,8 @@
  * You should have received a copy of the GNU General Public License
  * along with icure-scan.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-import RNIcureCrypto from "./rn-icure-crypto";
-
-export { RNIcureCrypto };
-
-export default RNIcureCrypto;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RNIcureCrypto = void 0;
+var rn_icure_crypto_1 = require("./src/rn-icure-crypto");
+exports.RNIcureCrypto = rn_icure_crypto_1.default;
+exports.default = rn_icure_crypto_1.default;

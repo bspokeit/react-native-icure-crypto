@@ -1,9 +1,10 @@
 {
   "name": "react-native-icure-crypto",
   "version": "1.0.0",
-  "description": "A native implementation of RSA and AES cryptographic features for icc-api",
-  "main": "index.js",
+  "description": "A React Native native RSA-AOEP and AES-CBC encrypt, decrypt and key generation implementation for the icc-api",
   "scripts": {
+    "build": "tsc",
+    "prepare": "rimraf dist && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -21,7 +22,8 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "react-native": "0.69.1"
+    "react-native": "0.69.1",
+    "rimraf": "^3.0.2"
   },
   "peerDependencies": {
     "react-native": "0.69.1"
