@@ -101,7 +101,7 @@ class AESNative: NSObject {
         let result = keyData.withUnsafeMutableBytes {
           SecRandomCopyBytes(kSecRandomDefault, keySize, $0.baseAddress!)
         }
-         s
+         
         guard result == errSecSuccess else {
             throw AESError.generateError
         }

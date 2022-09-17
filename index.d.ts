@@ -1,29 +1,66 @@
+/*
+ * Copyright (C) 2022 Bspoke IT SRL
+ *
+ * This file is part of icure-scan.
+ *
+ * icure-scan is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * icure-scan is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with icure-scan.  If not, see <http://www.gnu.org/licenses/>.
+ */
 declare module "react-native-icure-crypto" {
-  interface KeyPair {
-    public: string;
-    private: string;
+  namespace RNIcureCrypto {
+    export function getRandomValues();
+    export namespace SubtleCrypto {
+      export function decrypt(
+        algorithm: RsaOaepParams | AesCbcParams,
+        key: CryptoKey,
+        data: BufferSource
+      );
+      export function encrypt(
+        algorithm: RsaOaepParams | AesCbcParams,
+        key: CryptoKey,
+        data: BufferSource
+      );
+
+      export function exportKey(
+        format: "jwk" | "raw",
+        key: CryptoKey
+      ): Promise<JsonWebKey | ArrayBuffer>;
+
+      export function generateKey(
+        algorithm: RsaKeyAlgorithm | AesKeyGenParams,
+        extractable: boolean,
+        keyUsages: ReadonlyArray<KeyUsage>
+      ): Promise<CryptoKeyPair | CryptoKey>;
+
+      export function importKey(
+        format: "jwk" | "raw",
+        keyData: JsonWebKey | BufferSource,
+        algorithm: RsaKeyAlgorithm | AesKeyAlgorithm,
+        extractable: boolean,
+        keyUsages: ReadonlyArray<KeyUsage>
+      ): Promise<CryptoKey>;
+
+      export function deriveBits();
+      export function deriveKey();
+      export function digest();
+      export function sign();
+      export function unwrapKey();
+      export function verify();
+      export function wrapKey();
+    }
+
+    export function randomUUID(): string;
   }
-  namespace RNIcureRSA {
-    export function encrypt(data: string, key: string): Promise<string>;
-    export function decrypt(data: string, key: string): Promise<string>;
-    export function generateKey(keySize: number): Promise<KeyPair>;
-  }
 
-  namespace RNIcureAES {
-    export function encrypt(
-      data: string,
-      key: string,
-      iv: string
-    ): Promise<string>;
-
-    export function decrypt(
-      data: string,
-      key: string,
-      iv: string
-    ): Promise<string>;
-
-    export function generateKey(keySize: number): Promise<string>;
-  }
-
-  export { RNIcureRSA, RNIcureAES };
+  export { RNIcureCrypto };
 }

@@ -15,7 +15,10 @@
   "license": "MIT",
   "homepage": "https://github.com/bspokeit/react-native-icure-crypto#readme",
   "dependencies": {
-    "react-native": "0.69.1"
+    "base-64": "^1.0.0",
+    "react-native": "0.69.1",
+    "react-native-get-random-values": "^1.8.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "react-native": "0.69.1"

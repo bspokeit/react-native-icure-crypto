@@ -102,7 +102,7 @@ class RNIcureAES: NSObject {
     @objc
     func generateKey(_ keySize: Int, resolver resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
         
-        guard keySize % 8 != 0 else {
+        guard keySize % 8 == 0 else {
             reject("AES Native GenerateKey error", "Key size issue (AES-CBC key length expected to be multiple of 8)", nil)
             return
         }
