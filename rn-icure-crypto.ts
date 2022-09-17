@@ -251,6 +251,4 @@ const crypto: Crypto = {
   randomUUID: randomUUID,
 };
 
-export default {
-  ...crypto,
-};
+export default { ...crypto };

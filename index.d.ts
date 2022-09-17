@@ -17,19 +17,19 @@
  * along with icure-scan.  If not, see <http://www.gnu.org/licenses/>.
  */
 declare module "react-native-icure-crypto" {
-  namespace RNIcureCrypto {
-    export function getRandomValues();
-    export namespace SubtleCrypto {
+  export namespace RNIcureCrypto {
+    export function getRandomValues(): any;
+    export namespace subtle {
       export function decrypt(
         algorithm: RsaOaepParams | AesCbcParams,
         key: CryptoKey,
         data: BufferSource
-      );
+      ): any;
       export function encrypt(
         algorithm: RsaOaepParams | AesCbcParams,
         key: CryptoKey,
         data: BufferSource
-      );
+      ): any;
 
       export function exportKey(
         format: "jwk" | "raw",
@@ -50,17 +50,15 @@ declare module "react-native-icure-crypto" {
         keyUsages: ReadonlyArray<KeyUsage>
       ): Promise<CryptoKey>;
 
-      export function deriveBits();
-      export function deriveKey();
-      export function digest();
-      export function sign();
-      export function unwrapKey();
-      export function verify();
-      export function wrapKey();
+      export function deriveBits(): any;
+      export function deriveKey(): any;
+      export function digest(): any;
+      export function sign(): any;
+      export function unwrapKey(): any;
+      export function verify(): any;
+      export function wrapKey(): any;
     }
 
     export function randomUUID(): string;
   }
-
-  export { RNIcureCrypto };
 }
